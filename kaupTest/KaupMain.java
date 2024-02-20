@@ -14,7 +14,7 @@ public class KaupMain {
         float kg = (float) (randomvalue * 69) +30;
 
         System.out.printf("체중 : %.2f,  키 : %.2f",kg,metre);
-        System.out.println("");
+        System.out.println(" ");
         System.out.printf("BMI지수는 : %.2f ",(kg/(metre*metre)));
     }
 }
