@@ -1,8 +1,5 @@
 package gradeOOP;
 
-import memberOOP.MemberModel;
-
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GradeView {
