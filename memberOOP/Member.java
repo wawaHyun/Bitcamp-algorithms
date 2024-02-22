@@ -47,7 +47,7 @@ public class Member {
     public double getHeight(){
         return height;
     }
-    //-------------------------------
+    //--------------------------        -----
     public void createWeight(){
         this.weight =(double) (Math.random()*69)+30;
     }
