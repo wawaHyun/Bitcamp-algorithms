@@ -4,43 +4,60 @@ import java.util.Arrays;
 
 public class Lotto {
 
-    public static void main(String[] args) {
+    public void LottoMake(int[] lotto) {
+        //로또 추첨기
+//        1. 서로 겹치지 않는 숫자 6개를 생성
+//        2.각 숫자는 1 ~ 45 범위 내의 숫자
+//        3.매번 실행 시 다른 숫자 출력
+//        4.오름차순 정렬
+//          -> 랜덤수 : Math 사용
+        //main method에서 instance로 바꿔줌
 
-        int[] lotto = new int[6];
-        for (int i = 0; i < lotto.length; i++) {
-            lotto[i] = 1+(int)(Math.random()*44);
-            System.out.println("iiii "+i+" 숫자넣음"+Arrays.toString(lotto));
-            for (int j = 0; j < i; j++) {
-                if (lotto[i] == lotto[j]) {
+        lotto = new int[6];
+
+        lotto=createRandomNumber(lotto);
+        lotto=sort(lotto);
+        printLotto(lotto);
+    }
+
+    public static void printLotto(int[] lotto) {
+        for(int i = 0;i<lotto.length;i++){
+            System.out.printf("%d\t",lotto[i]);
+        }
+    }
+
+
+    //Service 부분---------------------------------------------------------------
+    public static int[] createRandomNumber(int[] lotto) {
+//        int[] lotto = new int[6];
+        //로또 중복금액 중복 및 입력
+        for(int i = 0;i<lotto.length;i++){
+            lotto[i] = 1+(int)(Math.random()*9);
+//            System.out.println(Arrays.toString(lotto));
+            for(int j = 0;j<i;j++){
+                if(lotto[i]==lotto[j]){
                     i--;
                     break;
                 }
             }
         }
 
+        return lotto;
+    }
 
-        System.out.println("Rmx "+Arrays.toString(lotto));
-
-
-
-        //정렬
-        for (int i = 0; i < lotto.length; i++) {
-            for (int ii = 0; ii < lotto.length; ii++) {
-                if (lotto[i] < lotto[ii]) {
+    public static int[] sort(int[] lotto){
+        //오름차순 정렬
+        for(int i = 0;i<lotto.length;i++){
+            for(int j = 0;j<lotto.length;j++){
+                if(lotto[i]<lotto[j]){
                     int math = lotto[i];
-                    lotto[i] = lotto[ii];
-                    lotto[ii] = math;
-                } else {
+                    lotto[i] = lotto[j];
+                    lotto[j] = math;
                 }
             }
         }
-
-
-
-        System.out.printf("로또 번호\n\n");
-        for (int i = 0; i < lotto.length; i++) {
-            System.out.printf("%2d ", lotto[i]);
-        }
-
+        return lotto;
     }
+
+
 }
