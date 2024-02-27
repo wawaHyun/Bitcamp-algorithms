@@ -1,4 +1,4 @@
-package matrixTest;
+    package matrixTest;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -137,18 +137,19 @@ class LottoDraw implements ILottoDraw {
 class LottoMatch implements ILottoMatch {
     @Override
     public int findSame(int[] originLotto, int[] myLotto) {
-        int[] oneLotto = new int[6];
-        int[] twoLotto = new int[6];
+        // int[] oneLotto = new int[6];
+        // int[] twoLotto = new int[6];
 
-        oneLotto = originLotto;
-        twoLotto = myLotto;
+        // oneLotto = originLotto;
+        // twoLotto = myLotto;
 
         int count =0;
 
-        for(int i =0;i<oneLotto.length;i++){
-            if(oneLotto[i]==twoLotto[i]){
+        for(int i =0;i<originLotto.length;i++){
+        for(int j =0;j<myLotto.length;j++){
+            if(originLotto[i]==myLotto[j]){
                 count++;
-            }
+            }}
         }
 
         return count;
@@ -156,21 +157,31 @@ class LottoMatch implements ILottoMatch {
 
     @Override
     public String rank(int count) {
-        String rank = null;
-        if(count==6){
-            rank = "1등입니다.";
-        }else if(count==5){
-            rank = "2등입니다.";
-        }else if(count==4){
-            rank = "3등입니다.";
-        }else if(count==3){
-            rank = "4등입니다.";
-        }else {
-            rank = "꽝입니다.";
+        String rank = "";
+        // if(count==6){
+        //     rank = "1등입니다.";
+        // }else if(count==5){
+        //     rank = "2등입니다.";
+        // }else if(count==4){
+        //     rank = "3등입니다.";
+        // }else if(count==3){
+        //     rank = "4등입니다.";
+        // }else {
+        //     rank = "꽝입니다.";
+        // }
+
+        
+        switch (count){
+            case 0 : rank = "꽝입니다.";
+            case 1 : rank = "꽝입니다.";
+            case 2 : rank = "꽝입니다.";
+            case 3 : rank = "4등입니다.";
+            case 4 : rank = "3등입니다.";
+            case 5 : rank = "2등입니다.";
+            case 6 : rank = "1등입니다.";
         }
         return rank;
     }
-
 }
 
 
